@@ -24,7 +24,7 @@ const router = new Router({
 let savedPosition = {}
 
 router.beforeEach((to, from, next) => {
-  console.log(to, from, next)
+  // console.log(to, from, next)
   savedPosition[from.name] = [window.scrollX, window.scrollY]
   const spt = savedPosition[to.name]
   window.scrollTo(...(spt || [0, 0]))
