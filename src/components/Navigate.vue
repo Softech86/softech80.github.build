@@ -3,7 +3,7 @@
     <router-link :to="{name: 'home'}">Home</router-link>
     <router-link to="">Blog</router-link>
     <router-link to="">Demo</router-link>
-    <a href="https://itstartstosnow.github.io/">Snow</a>
+    <a href="https://softech86.github.io/">L.Bai</a>
   </header>
 </template>
 

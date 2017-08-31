@@ -6,9 +6,9 @@
 
         <div class="poem" v-if="poem.content">
           <div class="favor">
-            <div>Code</div>
-            <div>Design</div>
-            <div>Music</div>
+            <div>Think</div>
+            <div>and</div>
+            <div>Work</div>
           </div>
           {{(poem.content).repeat(1 + len / poem.content.length).slice(0, len)}}
         </div>

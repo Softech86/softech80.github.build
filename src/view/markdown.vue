@@ -29,7 +29,7 @@
   import axios from 'axios'
   import marked from 'marked'
   import {highlightAuto} from 'highlight.js'
-  import 'highlight.js/styles/vs2015.css'
+  import 'highlight.js/styles/obsidian.css'
 
   marked.setOptions({
     highlight: function (code) {
