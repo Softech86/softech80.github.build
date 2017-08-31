@@ -1,0 +1,68 @@
+@import 'config.scss';
+
+html {
+  background-color: rgba($color-main, .1);
+}
+html, body {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color-main;
+  font-size: 10px;
+
+  @include responsive(phone) {
+    font-size: 9px;
+  }
+}
+
+::selection {
+  background-color: $color-main;
+  color: #FFF;
+}
+
+@font-face {
+  font-family: Krungthep;
+  src: url(/static/font/Krungthep.ttf);
+}
+
+//@font-face {
+//  font-family: songke-content;
+//  src: url(/static/font/songke-content.ttf);
+//}
+
+a {
+    font-family: $Krungthep;
+    color: $color-main;
+    opacity: .4;
+    transition: all .3s;
+    text-decoration-line: none;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+#app {
+  main {
+    position: relative;
+    top: 0;
+  }
+
+  animation: colorful 2s;
+
+  @keyframes colorful {
+    from {
+      filter: saturate(0);
+    }
+    to {
+      filter: saturate(1);
+    }
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+  opacity: 1;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  opacity: 0;
+}

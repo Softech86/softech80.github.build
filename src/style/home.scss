@@ -1,0 +1,161 @@
+@import 'config.scss';
+
+$width-page: 1.2rem;
+
+@mixin home-style ($k, $font-sm, $font-md, $font-lg) {
+  .logo {
+    left: $width-side - 2.5 * ($k - 1);
+    top: $width-top / $k;
+  }
+  .mask {
+    padding: $width-side / $k $width-top / $k;
+    .contents {
+      padding: $font-lg / $k $font-lg / $k * 1.5;
+      border: 3px / $k solid rgba($color-main, $op);
+      box-shadow: white 0 0 0 $width-page / $k, $color-main 0 0 4rem / $k 0;
+      .favor {
+        $f: $font-lg * .7;
+        $f1: $f * (5 - .7 * $k);
+        $f2: $f * (6.4 - .4 * $k);
+        $f3: $f * (5.7 - .7 * $k);
+        font-size: $font-lg;
+        margin-right: $font-lg * .8 / $k;
+        line-height: 2 - ($k - 1) / 3;
+        shape-outside: polygon(
+            0 0,
+            $f1 0,
+            $f1 33%,
+            $f2 33%,
+            $f2 67%,
+            $f3 67%,
+            $f3 100%,
+            0 100%);
+      }
+      .poem {
+        font-size: $font-sm / $k;
+      }
+    }
+  }
+}
+
+.home {
+  position: relative;
+  @include home-style(1, $font-sm, $font-md, $font-lg);
+
+  .logo {
+    position: fixed;
+  }
+
+  .page {
+    position: relative;
+    box-shadow: white 0 0 0 $width-page, $color-main 0 0 4rem 0;
+    background: white;
+    @extend %flex;
+  }
+
+  .mask {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+
+    .contents {
+
+      width: 100%;
+      height: 100rem;
+      left: 24rem;
+      top: .5rem;
+      transform: translateY(9.782222%) translateX(-12.23644%) rotateZ($deg);
+
+      box-sizing: border-box;
+
+      .favor {
+        font-family: $Krungthep;
+        float: left;
+      }
+      .poem {
+        font-weight: 300;
+        line-height: 1.2;
+        opacity: .5;
+        letter-spacing: .1rem;
+        overflow: hidden;
+      }
+    }
+  }
+
+  @include responsive(phone) {
+    @include home-style(2, $font-xs, $font-sm, $font-md);
+    svg {
+      width: 8rem;
+    }
+    .mask .contents {
+      left: 11rem;
+      top: 2rem;
+    }
+    .mask .favor {
+      opacity: $op;
+    }
+  }
+}
+
+@mixin float-style ($k, $font-sm, $font-md) {
+  padding: 5rem + 27rem / $k ($width-side + $width-page) / $k 5rem;
+  .menu {
+    min-height: 20rem + 30rem * (2 - $k);
+    padding: $font-md / $k;
+    .group {
+      margin: $font-md / 2 auto;
+      .name {
+        font-size: $font-md;
+        letter-spacing: .4rem / $k;
+      }
+      .item a {
+        font-size: $font-sm;
+      }
+    }
+  }
+}
+
+.float {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  .menu {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+
+    .group {
+      font-family: songke-title;
+      .name {
+        width: auto;
+        line-height: 2;
+        margin-bottom: $font-lg / 4;
+        border-bottom: 1px solid rgba($color-main, $op);
+      }
+      .item a {
+        font-family: songke-title;
+        opacity: 1;
+        line-height: 2.1;
+        color: grayscale($color-main);
+        &:hover {
+          color: $color-main;
+        }
+      }
+    }
+  }
+
+  @include float-style(1, $font-md, $font-lg);
+  @include responsive(phone) {
+    @include float-style(2, $font-sm, $font-md);
+  }
+}

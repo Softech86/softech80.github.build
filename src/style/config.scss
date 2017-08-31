@@ -1,0 +1,41 @@
+//$color-main: #975A58;
+$color-main: #507594;
+$deg: 12.72deg;
+$op: .4;
+
+$width-side: 4rem;
+$width-top: 3rem;
+
+$Krungthep: Krungthep;
+@font-face {
+  font-family: songke-title;
+  src: url(/static/font/songke-title.ttf);
+}
+
+$font-xs: 1.6rem;
+$font-sm: 1.8rem;
+$font-md: 2.1rem;
+$font-lg: 3.6rem;
+
+%flex {
+    display: flex;
+}
+
+%flex-end {
+    justify-content: flex-end;
+}
+
+$width-small:  576px;
+$width-medium: 768px;
+$width-large:  1200px;
+@mixin responsive($width) {
+  @if $width == pc {
+    @media only screen and (max-width: $width-large) { @content; }
+  }
+  @else if $width == pad {
+    @media only screen and (max-width: $width-medium) { @content; }
+  }
+  @else if $width == phone {
+    @media only screen and (max-width: $width-small) { @content; }
+  }
+}
