@@ -7,15 +7,27 @@
   padding-bottom: 2 * $font-lg;
   .title {
     font-family: songke-title;
-    font-size: $font-lg * 1.2;
-    color: $color-main;
+    font-size: $font-lg * 1.1;
     padding: 4rem + $font-lg * 1.6 $font-lg $font-lg * .3;
-    background: white;
+    //background: white;
+    //text-align: center;
+    position: relative;
     span {
+      width: 100%;
+      position: relative;
+      background: white;
+      padding: $font-lg / 2 $font-lg * .6;
+      margin-left: -$font-lg / 2;
       border: 1px solid rgba($color-main, $op);
-
-      padding: $font-lg / 4 $font-lg / 3;
-      //margin-left: -$font-lg / 3;
+      box-shadow: $color-main .2rem .1rem 2rem -1rem;
+    }
+    div {
+      position: absolute;
+      height: $font-lg;
+      left: 0;
+      width: 100%;
+      background: white;
+      transform: translateY($font-lg * .7);
     }
   }
   .center {

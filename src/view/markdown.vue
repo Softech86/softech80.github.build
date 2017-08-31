@@ -1,6 +1,7 @@
 <template>
   <div class="markdown" :class="{down: $bus.down}">
     <div class="title center">
+      <div></div>
       <span>{{title}}</span>
     </div>
     <!--<img :src="imgUri" alt="">-->
