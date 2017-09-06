@@ -6,7 +6,10 @@ $op: .4;
 $width-side: 4rem;
 $width-top: 3rem;
 
-$Krungthep: Krungthep;
+$font-effect-en: Krungthep;
+$font-effect-zh: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
+$font-code: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-read-zh: 'Avenir', Helvetica, Arial, sans-serif;
 @font-face {
   font-family: songke-title;
   src: url(/static/font/songke-title.ttf);

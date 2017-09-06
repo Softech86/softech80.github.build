@@ -4,7 +4,7 @@ html {
   background-color: rgba($color-main, .1);
 }
 html, body {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: $font-read-zh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $color-main;
@@ -31,7 +31,7 @@ html, body {
 //}
 
 a {
-    font-family: $Krungthep;
+    font-family: $font-effect-en;
     color: $color-main;
     opacity: .4;
     transition: all .3s;

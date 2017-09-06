@@ -39,7 +39,7 @@
     font: {
       size: $font-sm;
       weight: 300;
-      family: 'Avenir', Helvetica, Arial, sans-serif !important;
+      family: $font-read-zh !important;
     }
   }
 }
@@ -101,6 +101,8 @@
       top: .4em;
       bottom: .2em;
     }
+    font-family: $font-effect-zh;
+    letter-spacing: 2px;
   }
   h2 {
     color: mix($color-main, black)
@@ -146,7 +148,7 @@
     }
   }
   code, kbd, pre, samp {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: $font-code;
   }
   code {
     padding: 0 .4rem;
