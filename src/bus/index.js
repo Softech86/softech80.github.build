@@ -28,7 +28,8 @@ EventBus.install = function (Vue, options) {
   const Bus = new Vue({
     data () {
       return {
-        down: true
+        down: true,
+        windowHeight: 0
       }
     }
   })

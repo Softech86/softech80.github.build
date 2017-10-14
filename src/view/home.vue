@@ -60,7 +60,7 @@
     computed: {
       maskStyle () {
         return {
-          height: window.innerHeight + 'px'
+          height: this.$bus.windowHeight + 'px'
         }
       },
       contentStyle () {

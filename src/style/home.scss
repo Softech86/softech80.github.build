@@ -74,11 +74,14 @@ $width-page: 1.2rem;
         .favor {
           font-family: $font-effect-en;
           float: left;
+          color: $color-main;
         }
         font-family: $font-effect-zh;
         font-weight: 300;
         line-height: 1.2;
-        opacity: .5;
+        //opacity: .5;
+
+        color: rgba($color-main, .4);
         letter-spacing: .1rem;
         overflow: hidden;
       }

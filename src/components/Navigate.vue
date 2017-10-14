@@ -32,6 +32,12 @@ export default {
       }
       this.prev = t
     }
+  },
+  mounted () {
+    this.$bus.windowHeight = window.innerHeight
+    window.onresize = () => {
+      this.$bus.windowHeight = window.innerHeight
+    }
   }
 }
 </script>

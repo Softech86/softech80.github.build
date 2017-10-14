@@ -127,14 +127,14 @@
     display: block;
   }
   a {
-    opacity: .8;
+    opacity: .9;
   }
 
   pre, blockquote {
-    background: rgba(grayscale($color-main), .05);
+    background: transparent;
     padding: $font-sm;
     letter-spacing: .4px;
-    border: 1px solid rgba($color-main, .4);
+    border: 1px solid rgba($color-main, .2);
     width: 100%;
     box-sizing: border-box;
     border-radius: .2rem;
@@ -166,8 +166,8 @@
   }
   pre, p, ul, ol, blockquote {
     margin: {
-      top: .3em;
-      bottom: .3em;
+      top: .5em;
+      bottom: .5em;
     }
   }
 }
