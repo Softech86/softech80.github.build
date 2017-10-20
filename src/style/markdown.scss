@@ -1,6 +1,6 @@
 @import 'config.scss';
 
-@mixin markdown-style($font-sm, $font-md, $font-lg) {
+@mixin markdown-style($k, $font-sm, $font-md, $font-lg) {
   position: relative;
   width: 100%;
   background: rgba(white, .4);
@@ -36,6 +36,7 @@
   }
   .md-display {
     padding: $font-lg*.8 $font-lg;
+    letter-spacing: 1.3px - .5px * $k;
     font: {
       size: $font-sm;
       weight: 300;
@@ -70,10 +71,10 @@
 }
 
 .markdown {
-  @include markdown-style($font-sm, $font-md, $font-lg);
+  @include markdown-style(1, $font-sm, $font-md, $font-lg);
   @include code-style($font-lg);
   @include responsive(phone) {
-    @include markdown-style($font-xs, $font-sm, $font-md);
+    @include markdown-style(2, $font-xs, $font-sm, $font-md);
     @include code-style($font-sm);
     padding-bottom: 0;
     code div {
@@ -84,7 +85,6 @@
 
 
 .md-display {
-  letter-spacing: .8px;
   line-height: 1.5;
   align-items: flex-start;
   text-align: left;
