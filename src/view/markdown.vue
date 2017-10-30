@@ -1,5 +1,5 @@
 <template>
-  <div class="markdown" :class="{down: $bus.down}">
+  <div class="markdown" :class="{down: $bus.down}" :style="{minHeight: $bus.windowHeight + 'px'}">
     <div class="title center">
       <div></div>
       <span>{{title}}</span>
@@ -79,8 +79,11 @@
       this.title = this.path.split('/').pop().slice(0, -3)
       axios(`/static/markdown/${this.path}`).then(res => {
         this.md = res.data
-        this.md = this.md.replace(/(\[.*?\]\()((?!http).+\))/g, `$1/static/markdown/${this.path}/../$2`)
+        this.md = this.md
+          .replace(/(\[.*?\]\()((?!http).+\))/g, `$1/static/markdown/${this.path}/../$2`)
         this.mhtml = marked(this.md)
+          .replace(/<img src="(.+?)" alt="([^_].*?)">/g, `<div class="img" desc="$2"><img src="$1" alt="$2"></div>`)
+          .replace(/<img src="(.+?)" alt="_(.*?)">/g, `<div class="img"><img src="$1" alt="$2"></div>`)
 
         while (1) {
           const re = /<pre><code.*?>[\s\S]*?<\/code><\/pre>/
