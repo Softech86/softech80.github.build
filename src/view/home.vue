@@ -61,7 +61,8 @@
       },
       contentStyle () {
         return {
-          height: this.cw
+          height: this.cw,
+          opacity: this.cw && 1
         }
       }
     },
