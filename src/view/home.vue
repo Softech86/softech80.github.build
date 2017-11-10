@@ -5,7 +5,7 @@
       <div class="contents page" ref="contents" :style="contentStyle">
 
         <div class="poem" v-if="poem.content">
-          <div class="favor" v-for="f in ['Code', 'Design', 'Music']">{{f}}</div>
+          <div class="favor" v-for="f in ['Code', 'Brings', 'Beauty']">{{f}}</div>
           {{(poem.content).repeat(1 + len / poem.content.length).slice(0, len)}}
         </div>
       </div>

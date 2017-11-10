@@ -15,9 +15,9 @@ $width-page: 1.2rem;
       box-shadow: white 0 0 0 $width-page / $k, $color-main 0 0 4rem / $k 0;
       .favor {
         $f: $font-lg * .7;
-        $f1: $f * (5 - .7 * $k);
-        $f2: $f * (6.4 - .4 * $k);
-        $f3: $f * (5.7 - .7 * $k);
+        $f1: $f * (4.6 - .5 * $k);
+        $f2: $f * (5.7 - .6 * $k);
+        $f3: $f * (6.4 - .7 * $k);
         font-size: $font-lg;
         margin-right: $font-lg * .4 / $k;
         line-height: 2.4 - $k * .45;
