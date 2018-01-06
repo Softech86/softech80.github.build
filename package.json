@@ -9,8 +9,7 @@
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
-    "pack": "cd static && node build.js && node poem/generate.js",
-    "font": "cd font-spider && bash build.sh"
+    "update": "node build/file-index.js && node static/poem/generate.js && cd font-spider && bash build.sh"
   },
   "dependencies": {
     "axios": "^0.16.2",
