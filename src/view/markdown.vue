@@ -8,17 +8,17 @@
     <div class="md-display center" v-html="mhtml" ref="md"></div>
     <transition name="fade">
       <div id="image-preview" v-if="imgPreview && imgPreview.url" @click="imgPreview.url = ''">
-        <img :src="imgPreview.url" alt="图片预览失败" :style="imgPreviewStyle">
+        <div class="img-box center">
+          <img :src="imgPreview.url" alt="图片预览失败">
+        </div>
       </div>
       <div id="link-preview" v-if="linkPreview" @click="linkPreview = ''">
         <iframe
           :src="linkPreview"
           frameborder="0"
-          ref="iframe"
-          :width="window.width * 0.8 + 'px'"
-          :height="window.height * 0.8 + 'px'">
+          ref="iframe">
         </iframe>
-        <nobr :style="{maxWidth: window.width * 0.8 + 'px'}">{{linkPreview}}</nobr>
+        <nobr>{{linkPreview}}</nobr>
         <a :href="linkPreview" target="_blank">在新页面查看</a>
       </div>
     </transition>
@@ -68,7 +68,7 @@
       imgPreviewStyle () {
         const scr = this.window.ratio
         return this.imgPreview.ratio > scr ? {
-          width: '80%'
+          width: '100%'
         } : {
           height: this.window.height * 0.8 + 'px'
         }

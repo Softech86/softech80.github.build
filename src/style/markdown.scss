@@ -9,7 +9,8 @@
 
   .title {
     font-family: songke-title;
-    font-size: $font-lg * 1.1;
+    //font-size: $font-lg * (.9 + .2 * $k);
+    font-size: 5.5em - 1.5em * $k;
     padding: 4rem + $font-lg * 1.6 $font-lg $font-lg * .3;
     //background: white;
     //text-align: center;
@@ -213,28 +214,55 @@
   align-items: center;
   justify-content: center;
   cursor: zoom-out;
+  box-sizing: border-box;
+  z-index: 1001;
 
   img, iframe {
+    width: 100%;
     background: grayscale($color-main);
     box-shadow: grayscale($color-main) 0 0 3rem -1rem;
+  }
+  iframe {
+    background: white;
+    flex-grow: 1;
+  }
+}
+
+#image-preview {
+  .img-box {
+    max-height: 100%;
+    width: 80%;
+    //flex-grow: 1;
+    overflow-y: scroll;
+    @include responsive(phone) {
+      width: 100%;
+    }
+  }
+  img {
+    box-sizing: border-box;
+    padding: 1px;
   }
 }
 
 #link-preview {
   cursor: w-resize;
+  padding: 2.1rem;
+
   a {
     font-size: $font-sm;
-    line-height: 2;
+    line-height: 1;
     letter-spacing: .1rem;
     opacity: $op * 1.5;
   }
   nobr {
     line-height: 2;
+    margin-top: 1rem;
     height: $font-sm;
     word-break: break-all;
     opacity: $op;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 100%;
   }
 }
 

@@ -54,21 +54,22 @@ $width-page: 1.2rem;
   }
 
   .mask {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+
     overflow: hidden;
     box-sizing: border-box;
     position: fixed;
     top: 0;
 
     .contents {
-
-      width: 100%;
-      height: 100rem;
-      left: 24rem;
-      top: .5rem;
-      opacity: 0;
-      transform: translateY(9.782222%) translateX(-12.23644%) rotateZ($deg);
-
+      opacity: 1;
+      width: 100vw;
+      height: 100vh;
+      transform-origin: left top;
+      transform: rotateZ(12.72deg);
+      left: 25rem;
+      top: -2rem;
       box-sizing: border-box;
 
       .poem {
@@ -96,8 +97,8 @@ $width-page: 1.2rem;
       width: 8rem;
     }
     .mask .contents {
-      left: 11rem;
-      top: 2rem;
+      left: 10rem;
+      top: 3rem;
     }
     .mask .favor {
       opacity: $op;
@@ -162,6 +163,6 @@ $width-page: 1.2rem;
 
   @include float-style(1, $font-md, $font-lg);
   @include responsive(phone) {
-    @include float-style(2, $font-sm, $font-md);
+    @include float-style(2, $font-md, $font-md * 1.2);
   }
 }

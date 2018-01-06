@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <Logo></Logo>
-    <div class="mask" :style="maskStyle">
-      <div class="contents page" ref="contents" :style="contentStyle">
+    <div class="mask">
+      <div class="contents page" ref="contents">
 
         <div class="poem" v-if="poem.content">
           <div class="favor" v-for="f in ['Code', 'Design', 'Music']">{{f}}</div>
@@ -51,19 +51,6 @@
         poem: {},
         groups: [],
         len: 760
-      }
-    },
-    computed: {
-      maskStyle () {
-        return {
-          height: this.$bus.windowHeight + 'px'
-        }
-      },
-      contentStyle () {
-        return {
-          height: this.cw,
-          opacity: this.cw && 1
-        }
       }
     },
     async created () {
