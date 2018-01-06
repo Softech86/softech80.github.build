@@ -4,9 +4,8 @@
     <div class="mask">
       <div class="contents page" ref="contents">
 
-        <div class="poem" v-if="poem.content">
+        <div class="poem" ref="poem" v-if="poem.content">
           <div class="favor" v-for="f in ['Code', 'Design', 'Music']">{{f}}</div>
-          {{(poem.content).repeat(1 + len / poem.content.length).slice(0, len)}}
         </div>
       </div>
     </div>
@@ -46,11 +45,9 @@
     },
     data () {
       return {
-        cw: 0,
         poems: [],
         poem: {},
-        groups: [],
-        len: 760
+        groups: []
       }
     },
     async created () {
@@ -58,20 +55,21 @@
       this.groups = (await axios(`/static/markdown/tree.json`)).data.children
       const index = Math.floor((Math.random() * this.poems.length))
       this.poem = this.poems[index]
-    },
-    mounted () {
-      const c = this.$refs.contents
-      this.cw = window.getComputedStyle(c).width
 
-      // magic
-      let l = parseInt(this.cw) + 36
-      let y
-      if (l <= 540) {
-        y = 0.0205 * l * l - 10.816 * l + 1718
-      } else {
-        y = 0.0006 * l * l + 2.87 * l - 2004
-      }
-      this.len = parseInt(y)
+      this.$nextTick(() => {
+        const poem = this.$refs.poem
+        for (let i = 0; i < 100; ++i) {
+          const t = document.createTextNode(this.poem.content)
+          const n = document.createElement('span')
+          n.appendChild(t)
+          poem.appendChild(n)
+          const bcr = n.getBoundingClientRect()
+          if (bcr.top > window.innerHeight && bcr.left > window.innerWidth) {
+            poem.removeChild(n)
+            break
+          }
+        }
+      })
     }
   }
 </script>

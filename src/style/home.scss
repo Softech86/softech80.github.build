@@ -9,32 +9,32 @@ $width-page: 1.2rem;
   }
   .mask {
     padding: $width-side / $k $width-top / $k;
-    .contents {
-      padding: $font-lg / $k $font-lg / $k * 1.5;
-      border: 3px / $k solid rgba($color-main, $op);
-      box-shadow: white 0 0 0 $width-page / $k, $color-main 0 0 4rem / $k 0;
-      .favor {
-        $f: $font-lg * .7;
-        $f1: $f * (5 - .7 * $k);
-        $f2: $f * (6.4 - .4 * $k);
-        $f3: $f * (5.7 - .7 * $k);
-        font-size: $font-lg;
-        margin-right: $font-lg * .4 / $k;
-        line-height: 2.4 - $k * .45;
-        //shape-outside: polygon(
-        //    0 0,
-        //    $f1 0,
-        //    $f1 33%,
-        //    $f2 33%,
-        //    $f2 67%,
-        //    $f3 67%,
-        //    $f3 100%,
-        //    0 100%);
-      }
-      .poem {
-        font-size: $font-sm / $k;
-      }
-    }
+  }
+  .contents {
+    padding: $font-lg / $k $font-lg / $k * 1.5;
+    border: 3px / $k solid rgba($color-main, $op);
+    box-shadow: white 0 0 0 $width-page / $k, $color-main 0 0 4rem / $k 0;
+  }
+  .favor {
+    $f: $font-lg * .7;
+    $f1: $f * (5 - .7 * $k);
+    $f2: $f * (6.4 - .4 * $k);
+    $f3: $f * (5.7 - .7 * $k);
+    font-size: $font-lg;
+    margin-right: $font-lg * .4 / $k;
+    line-height: 2.4 - $k * .45;
+    //shape-outside: polygon(
+    //    0 0,
+    //    $f1 0,
+    //    $f1 33%,
+    //    $f2 33%,
+    //    $f2 67%,
+    //    $f3 67%,
+    //    $f3 100%,
+    //    0 100%);
+  }
+  .poem {
+    font-size: $font-sm / $k;
   }
 }
 
@@ -61,34 +61,37 @@ $width-page: 1.2rem;
     box-sizing: border-box;
     position: fixed;
     top: 0;
+  }
 
-    .contents {
-      opacity: 1;
-      width: 100vw;
-      height: 100vh;
-      transform-origin: left top;
-      transform: rotateZ(12.72deg);
-      left: 25rem;
-      top: -2rem;
-      box-sizing: border-box;
+  .contents {
+    opacity: 1;
+    width: 100vw;
+    height: 103vh;
+    transform-origin: left top;
+    transform: rotateZ(12.72deg);
+    left: 25rem;
+    top: -2rem;
+    box-sizing: border-box;
 
-      .poem {
-        .favor {
-          font-family: $font-effect-en;
-          float: left;
-          clear: both;
-          color: $color-main;
-        }
-        font-family: $font-effect-zh;
-        font-weight: 300;
-        line-height: 1.2;
-        //opacity: .5;
+  }
 
-        color: rgba($color-main, .4);
-        letter-spacing: .1rem;
-        overflow: hidden;
-      }
-    }
+  .poem {
+    font-family: $font-effect-zh;
+    font-weight: 300;
+    line-height: 1.2;
+    //opacity: .5;
+
+    color: rgba($color-main, .4);
+    letter-spacing: .1rem;
+    //overflow: hidden;
+    word-break: break-all;
+  }
+
+  .favor {
+    font-family: $font-effect-en;
+    float: left;
+    clear: both;
+    color: $color-main;
   }
 
   @include responsive(phone) {
