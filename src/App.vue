@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <Navigate></Navigate>
-    <main>
-      <router-view></router-view>
-    </main>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Navigate from '@/components/Navigate'
 export default {
   name: 'app',
-  components: {
-    Navigate
+  mounted () {
+    this.$bus.windowHeight = window.innerHeight
+    window.onresize = () => {
+      this.$bus.windowHeight = window.innerHeight
+    }
   }
 }
 </script>
 
 <style lang="scss">
-  @import 'style/app.scss';
+  @import "style/app.scss";
+  @import "style/oo";
 </style>

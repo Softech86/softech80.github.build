@@ -1,0 +1,12 @@
+@font-face {
+  font-family: songke-title;
+  src: url(/static/font/songke-title.ttf); }
+.side {
+  background: cornflowerblue;
+  height: 100vh;
+  width: 200px; }
+
+canvas {
+  display: block; }
+
+/*# sourceMappingURL=side.css.map */

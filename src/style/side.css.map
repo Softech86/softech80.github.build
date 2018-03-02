@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAaA,UAGC;EAFC,WAAW,EAAE,YAAY;EACzB,GAAG,EAAE,kCAAkC;ACZzC,KAAM;EACJ,UAAU,EAAE,cAAc;EAC1B,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;;AAGd,MAAO;EACL,OAAO,EAAE,KAAK",
+"sources": ["config.scss","side.scss"],
+"names": [],
+"file": "side.css"
+}
