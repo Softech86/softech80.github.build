@@ -1,0 +1,146 @@
+@import "variable";
+
+// font-size
+@for $i from 12 through 40 {
+  .f#{$i} { font-size: $i * 1px !important; }
+}
+
+// font-family
+.courier {
+  font-family: "Courier New", monospace !important;
+}
+.courier-bold {
+  font-family: "Courier New Bold", monospace !important;
+}
+.industry {
+  font-family: "New Industry", sans-serif !important;
+}
+.song {
+  font-family: "Song", serif !important;
+}
+.heading {
+  font-family: "Song", "Courier New Bold", serif !important;
+}
+.coding {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+// font-weight
+.bold {
+  font-weight: bold;
+}
+
+// color
+.color-primary {
+  color: $primary-color;
+}
+.bg-primary {
+  background-color: $primary-color;
+}
+
+// margin, padding
+@for $i from 0 through 10 {
+  $d: $i * 5;
+  .mt#{$d} { margin-top: $d * 1px !important; }
+  .ml#{$d} { margin-left: $d * 1px !important; }
+  .mr#{$d} { margin-right: $d * 1px !important; }
+  .mb#{$d} { margin-bottom: $d * 1px !important; }
+  .mv#{$d} {
+    @extend .mt#{$d}, .mb#{$d};
+  }
+  .m#{$d} {
+    @extend .mt#{$d}, .ml#{$d}, .mr#{$d}, .mb#{$d};
+  }
+
+  .pt#{$d} { padding-top: $d * 1px !important; }
+  .pl#{$d} { padding-left: $d * 1px !important; }
+  .pr#{$d} { padding-right: $d * 1px !important; }
+  .pb#{$d} { padding-bottom: $d * 1px !important; }
+  .p#{$d} {
+    @extend .pt#{$d}, .pl#{$d}, .pr#{$d}, .pb#{$d};
+  }
+}
+
+// flex
+.flex {
+  display: flex;
+}
+.flex {
+  display: flex;
+}
+
+@for $i from 0 through 8 {
+  .fl#{$i} {
+    flex: $i
+  }
+}
+
+.flv {
+  // vertical
+  flex-direction: column;
+}
+.flh {
+  // horizontal
+  flex-direction: row;
+}
+// main-x sub-y
+.flxs {
+  justify-content: flex-start;
+}
+.flxc {
+  justify-content: center;
+}
+.flxe {
+  justify-content: flex-end;
+}
+.flxsa {
+  justify-content: space-around;
+}
+.flxsb {
+  justify-content: space-between;
+}
+
+.flys {
+  align-items: flex-start;
+}
+.flyc {
+  align-items: center;
+}
+.flye {
+  align-items: flex-end;
+}
+.flyb {
+  align-items: baseline;
+}
+.flyst {
+  align-items: stretch;
+}
+
+// position
+.rltv {
+  position: relative;
+}
+.absl {
+  position: absolute;
+}
+
+
+// max-width
+.mw800 {
+  max-width: 800px;
+  margin: auto;
+}
+.mw1000 {
+  max-width: 1000px;
+  margin: auto;
+}
+
+// transition
+.ani2 {
+  transition: .2s;
+}
+
+.ani3 {
+  transition: .3s;
+}
+
