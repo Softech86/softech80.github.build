@@ -1,22 +1,36 @@
-# softech86.github.build
+# A Blog of Softech86
 
-> Nuxt.js project
+#博客
 
-## Build Setup
+Softech86 的个人博客：收集markdown及资源文件，生成对应的静态博客。
 
-``` bash
-# install dependencies
-$ npm install # Or yarn install
+**Version 1.0**
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## 安装
+需要  `node` 支持。
 
-# build for production and launch server
-$ npm run build
-$ npm start
+### 安装 node_modules
+```
+$ npm install # or yarn install
+```
 
-# generate static project
+### 编译 markdown 文件夹
+```
+$ gulp
+```
+
+### 生成静态文件
+```
 $ npm run generate
 ```
 
+### 更多支持
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+
+## 技术栈
+- Vue
+- Nuxt
+- Gulp
+
+## License
+MIT
