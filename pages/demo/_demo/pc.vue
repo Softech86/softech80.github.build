@@ -1,5 +1,5 @@
 <template>
-  <div>
-    hello
+  <div class="demo-pc">
+    pc
   </div>
 </template>
