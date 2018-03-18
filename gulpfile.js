@@ -12,15 +12,20 @@ const highlight = require('highlight.js')
 const md5 = require('md5');
 const fontmin = require('gulp-fontmin');
 const jsonfile = require('jsonfile')
+const print = require('gulp-print').default
+
+const util = require('./assets/script/util.js')
 
 
 const PATH = {
   template: 'components/BlogTemplate.vue',
   src: 'markdown/*.md',
-  resource: 'markdown/*.!(md)',
-  dest: 'pages/markdown',
+  resource: 'markdown/**/*.!(md)',
+  markdownDist: 'pages/markdown',
   map: 'assets/script/md.json',
-  static: 'static/markdown'
+  static: 'static/markdown',
+  demo: 'demo/**/*',
+  demoDist: 'static/demo/static'
 }
 
 
@@ -39,9 +44,12 @@ const JSONToVue = function(template) {
       titleImage: '',
       createdAt: '',
       updatedAt: '',
+      time: '',
       body: '',
       category: 'Default'
     }, JSON.parse('' + file.contents))
+    data.time = new util.TimeFormat(data.createdAt || data.updatedAt || 0).text()
+
 
     file.data = data
     file.contents = new Buffer(lodash.template(template)(data))
@@ -82,14 +90,24 @@ gulp.task('markdown::font', function(cb) {
 
 gulp.task('markdown::resource', function () {
   return gulp.src(PATH.resource)
+    .pipe(print(function (filepath) {
+      return `Moving resource: ${filepath}`
+    }))
     .pipe(gulp.dest(PATH.static))
 })
 
+gulp.task('demo::resource', function () {
+  return gulp.src(PATH.demo)
+    .pipe(print(function (filepath) {
+      return `Moving resource: ${filepath}`
+    }))
+    .pipe(gulp.dest(PATH.demoDist))
+})
+
 gulp.task('markdown::template', function () {
-  del.sync([PATH.dest, PATH.map, PATH.static])
+  del.sync([PATH.markdownDist, PATH.demoDist, PATH.map, PATH.static])
   const file = fs.readFileSync(PATH.template);
   const template = file.toString()
-
 
   const paths = [];
 
@@ -100,7 +118,7 @@ gulp.task('markdown::template', function () {
       path.basename = md5(path.basename)
       path.extname = ".vue"
     }))
-    .pipe(gulp.dest(PATH.dest))
+    .pipe(gulp.dest(PATH.markdownDist))
     .on('data', function (file) {
       paths.push(Object.assign({
         name: file.relative.slice(0, -4)
@@ -117,7 +135,7 @@ gulp.task('markdown::template', function () {
 })
 
 
-gulp.task('default', ['markdown::template', 'markdown::resource', 'markdown::font']);
+gulp.task('default', ['markdown::template', 'markdown::resource', 'markdown::font', 'demo::resource']);
 
 gulp.task('watch', function () {
   // livereload.listen()
@@ -126,6 +144,7 @@ gulp.task('watch', function () {
     PATH.src,
     PATH.resource
   ], ['default'])
+  gulp.watch(PATH.demo, ['demo::resource'])
 })
 
 gulp.task('watch-template', function () {

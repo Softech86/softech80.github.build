@@ -1,6 +1,7 @@
 <template>
   <div class="demo-pad">
-    pad
+    pad - {{demo}}
+    <iframe :src="url" frameborder="0"></iframe>
   </div>
 </template>
 
@@ -9,6 +10,14 @@
   export default {
     mounted () {
 
+    },
+    computed: {
+      demo () {
+        return this.$route.params.demo
+      },
+      url () {
+        return `/demo/static/plane/plane.html`
+      }
     }
   }
 
