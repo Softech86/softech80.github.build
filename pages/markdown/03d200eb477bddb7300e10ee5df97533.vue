@@ -7,7 +7,7 @@
       <div
         class="title-image ani3"
         ref="titleImage"
-        style="background-image: url('down.gif')"
+        style="background-image: url('/markdown/down.gif')"
         :style="{ height: titleImageHeight + 'px' }"
         v-if="titleImage"
       ></div>
@@ -16,7 +16,7 @@
       <div class="courier mt10 mb40">
         <span class="category">Develop</span>
         <span class="ml10 mr10">|</span>
-        <span class="time">{{ time }}</span>
+        <span class="time">Nov 4 2017</span>
       </div>
 
       <div id="article"><p>事情太多，一团乱麻。先把要做的事情列下来，一件一件去完成。</p>
@@ -50,7 +50,6 @@
 </template>
 
 <script>
-  import { TimeFormat } from '~/assets/script/util.js'
   export default {
     data () {
       return {
@@ -58,7 +57,6 @@
 
         category: 'Develop',
         titleImage: 'down.gif',
-        time: new TimeFormat('2017-11-4 10:12' || 0).text(),
       }
     },
     mounted () {

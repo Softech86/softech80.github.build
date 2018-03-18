@@ -7,7 +7,7 @@
       <div
         class="title-image ani3"
         ref="titleImage"
-        style="background-image: url('下一步开发内容.jpg')"
+        style="background-image: url('/markdown/下一步开发内容.jpg')"
         :style="{ height: titleImageHeight + 'px' }"
         v-if="titleImage"
       ></div>
@@ -16,7 +16,7 @@
       <div class="courier mt10 mb40">
         <span class="category">Develop</span>
         <span class="ml10 mr10">|</span>
-        <span class="time">{{ time }}</span>
+        <span class="time">Mar 18 2018</span>
       </div>
 
       <div id="article"><h2 id="-">更新</h2>
@@ -58,7 +58,6 @@
 </template>
 
 <script>
-  import { TimeFormat } from '~/assets/script/util.js'
   export default {
     data () {
       return {
@@ -66,7 +65,6 @@
 
         category: 'Develop',
         titleImage: '下一步开发内容.jpg',
-        time: new TimeFormat('2018-03-12T06:48:49.095Z' || 0).text(),
       }
     },
     mounted () {

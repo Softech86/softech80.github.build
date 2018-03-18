@@ -7,7 +7,7 @@
       <div
         class="title-image ani3"
         ref="titleImage"
-        style="background-image: url('大学物理复习思路.jpg')"
+        style="background-image: url('/markdown/大学物理复习思路.jpg')"
         :style="{ height: titleImageHeight + 'px' }"
         v-if="titleImage"
       ></div>
@@ -16,7 +16,7 @@
       <div class="courier mt10 mb40">
         <span class="category">Daily</span>
         <span class="ml10 mr10">|</span>
-        <span class="time">{{ time }}</span>
+        <span class="time">Jun 27 2016</span>
       </div>
 
       <div id="article"><p>再过几个小时天亮，再过几个小时是物理考试。去洗把脸，仪式性地翻看崭新的物理书，妄图做垂死挣扎。手指像强迫症患者一样捻着书页的边缘，仿佛燧人氏钻木取火，即将搓出物理学智慧的火花；或者也许只搓卷书页一角。低下头，脸用力凑向桌子，同文字序列们问好。毫无规则，鳞次栉比，似曾相识。</p>
@@ -41,7 +41,6 @@
 </template>
 
 <script>
-  import { TimeFormat } from '~/assets/script/util.js'
   export default {
     data () {
       return {
@@ -49,7 +48,6 @@
 
         category: 'Daily',
         titleImage: '大学物理复习思路.jpg',
-        time: new TimeFormat('2016-6-27 5:14' || 0).text(),
       }
     },
     mounted () {

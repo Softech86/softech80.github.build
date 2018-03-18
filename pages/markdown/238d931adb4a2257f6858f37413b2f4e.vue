@@ -7,7 +7,7 @@
       <div
         class="title-image ani3"
         ref="titleImage"
-        style="background-image: url('自经丧乱少睡眠.jpg')"
+        style="background-image: url('/markdown/自经丧乱少睡眠.jpg')"
         :style="{ height: titleImageHeight + 'px' }"
         v-if="titleImage"
       ></div>
@@ -16,7 +16,7 @@
       <div class="courier mt10 mb40">
         <span class="category">Daily</span>
         <span class="ml10 mr10">|</span>
-        <span class="time">{{ time }}</span>
+        <span class="time">Oct 31 2017</span>
       </div>
 
       <div id="article"><p>子时，睡不着觉。躺下又爬起来。战战兢兢，好像思路散在书桌上，需在零落前收起来。</p>
@@ -37,7 +37,6 @@
 </template>
 
 <script>
-  import { TimeFormat } from '~/assets/script/util.js'
   export default {
     data () {
       return {
@@ -45,7 +44,6 @@
 
         category: 'Daily',
         titleImage: '自经丧乱少睡眠.jpg',
-        time: new TimeFormat('2017-10-31 0:09' || 0).text(),
       }
     },
     mounted () {

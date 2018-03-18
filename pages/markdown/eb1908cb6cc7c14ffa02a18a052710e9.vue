@@ -7,7 +7,7 @@
       <div
         class="title-image ani3"
         ref="titleImage"
-        style="background-image: url('')"
+        style="background-image: url('/markdown/')"
         :style="{ height: titleImageHeight + 'px' }"
         v-if="titleImage"
       ></div>
@@ -16,7 +16,7 @@
       <div class="courier mt10 mb40">
         <span class="category">Develop</span>
         <span class="ml10 mr10">|</span>
-        <span class="time">{{ time }}</span>
+        <span class="time">Jun 11 1898</span>
       </div>
 
       <div id="article"><h2 id="subtitle">subtitle</h2>
@@ -154,10 +154,10 @@ export <span class="hljs-keyword">default</span> {
 <h2 id="image">image</h2>
 <p><img src="https://zh.nuxtjs.org/vuejobs.png" alt="vuejob">
 <img src="http://120.27.121.123/markdown/%E5%90%AF%E7%A8%8B.jpg" alt="from server">
-<img src="scr.png" alt="_here"></p>
+<img src="res/scr.png" alt="_here"></p>
 <h2 id="link">link</h2>
 <ol>
-<li><a href="scr.png">here</a></li>
+<li><a href="res/scr.png">here</a></li>
 <li><a href="https://www.baidu.com">百度</a></li>
 <li><a href="https://www.bilibili.com">哔哩哔哩动画</a></li>
 <li><a href="https://www.webnovel.com">海外站</a></li>
@@ -169,7 +169,6 @@ export <span class="hljs-keyword">default</span> {
 </template>
 
 <script>
-  import { TimeFormat } from '~/assets/script/util.js'
   export default {
     data () {
       return {
@@ -177,7 +176,6 @@ export <span class="hljs-keyword">default</span> {
 
         category: 'Develop',
         titleImage: '',
-        time: new TimeFormat('1898-6-11' || 0).text(),
       }
     },
     mounted () {
