@@ -7,7 +7,7 @@
       <div
         class="title-image ani3"
         ref="titleImage"
-        style="background-image: url('<%= titleImage %>')"
+        style="background-image: url('/markdown/<%= titleImage %>')"
         :style="{ height: titleImageHeight + 'px' }"
         v-if="titleImage"
       ></div>
@@ -16,7 +16,7 @@
       <div class="courier mt10 mb40">
         <span class="category"><%= category %></span>
         <span class="ml10 mr10">|</span>
-        <span class="time">{{ time }}</span>
+        <span class="time"><%= time %></span>
       </div>
 
       <div id="article"><%= body %></div>
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-  import { TimeFormat } from '~/assets/script/util.js'
   export default {
     data () {
       return {
@@ -33,7 +32,6 @@
 
         category: '<%= category %>',
         titleImage: '<%= titleImage %>',
-        time: new TimeFormat('<%= createdAt || updatedAt %>' || 0).text(),
       }
     },
     mounted () {

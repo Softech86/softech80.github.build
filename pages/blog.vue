@@ -31,13 +31,14 @@
           </transition>
 
           <transition :name="down ? 'blog-up' : 'blog-down'">
-            <div class="blogListBox" v-if="showBlogList">
+            <div class="blogListBox" v-if="showBlogList" ref="blogList">
               <div
                 v-for="(blog, index) in blogList"
                 :key="blog.title"
                 class="pt20 pb20 blog"
                 :class="{ selected: selected === index}"
-                @mouseenter="selected = index"
+                @mouseenter="$nextTick( () =>  { selected = index } )"
+                @click="handleClick(selected === index, blog.url)"
               >
                 <span class="editAt courier f16">{{blog.editAt}}</span>
                 <!--<router-link :to="blog.url" class="title f20 ani2" @click.prevent="handleClick(selected === index, blog.url)">{{blog.title}}</router-link>-->
@@ -107,7 +108,7 @@
     },
     methods: {
       handleClick (focus, url) {
-        console.log(focus, url)
+        // console.log(focus)
         if (focus) {
           this.$router.push(url)
         }
@@ -199,6 +200,7 @@
   .blog {
     opacity: .4;
     transition: opacity;
+    cursor: pointer;
   }
   .tempBlogListBox {
     opacity: .4;
