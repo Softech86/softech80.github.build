@@ -55,7 +55,7 @@
       // wrap img tag
       const images = [...article.querySelectorAll('img')]
       images.forEach(x => {
-        console.log(x.outerHTML)
+        // console.log(x.outerHTML)
         const alt = x.getAttribute('alt')
         const src = x.getAttribute('src')
         if (src.search(/(http|ftp|https|www):\/\//g) < 0) {

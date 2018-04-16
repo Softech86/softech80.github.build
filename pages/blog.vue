@@ -5,7 +5,7 @@
     <!--<div class="fl1 flex flv flxc">-->
     <div class="flex fl1">
 
-      <div class="ml10 mr20 flex flv blogBox">
+      <div class="ml15 mr20 flex flv blogBox">
         <div class="btn" @click="prev">
           <transition name="btn-up">
             <div class="before" v-if="this.hasPrev">
@@ -74,7 +74,6 @@
       </div>
 
     </div>
-    <!--</div>-->
 
   </section>
 </template>

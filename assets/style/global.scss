@@ -32,3 +32,37 @@ a {
 [v-cloak] {
   display: none;
 }
+
+
+//.page-enter-active, .page-leave-active {
+//  transition: opacity .3s;
+//}
+//.page-enter, .page-leave-to {
+//  opacity: 0;
+//}
+
+
+//.home-leave-active {
+//  transition: .5s;
+//}
+//.home-leave {
+//  transform: translateY(0);
+//  opacity: 1;
+//}
+//.home-leave-to {
+//  transform: translateY(-10%);
+//  opacity: 0;
+//}
+//
+//
+//.blog-enter-active {
+//  transition: .5s;
+//}
+//.blog-enter {
+//  transform: translateY(-10%);
+//  opacity: 0;
+//}
+//.blog-enter-to {
+//  transform: translateY(0);
+//  opacity: 1;
+//}
