@@ -4,6 +4,17 @@ $lightgray: #f8f9fa;
 $gray: #e1e4e8;
 $black: #363636;
 
+@mixin mobile {
+  @media only screen and ( max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin pad {
+  @media only screen and ( max-width: 992px) {
+    @content;
+  }
+}
 
 @font-face {
   font-family: "Courier New";
@@ -24,3 +35,4 @@ $black: #363636;
   font-family: "Song";
   src: url("/font/song.ttf");
 }
+

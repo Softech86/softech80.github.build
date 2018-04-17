@@ -1,5 +1,5 @@
 <template>
-  <div class="pl40 pr40">
+  <div class="layout">
     <nuxt/>
   </div>
 </template>
@@ -13,3 +13,14 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "../assets/style/variable";
+  .layout {
+    padding: 0 40px;
+
+    @include mobile {
+      padding: 20px;
+    }
+  }
+</style>
