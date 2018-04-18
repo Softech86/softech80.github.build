@@ -17,6 +17,7 @@ a {
   background-size: cover;
   border-radius: 8px;
 }
+
 .title {
   font-weight: normal;
 }
@@ -58,6 +59,16 @@ a {
   }
 }
 
+@include mobile () {
+  .courier {
+    margin-top: 5px !important;
+    margin-bottom: 20px !important;
+  }
+  .img {
+    margin: 0 auto;
+    padding: 5px 0;
+  }
+}
 
 #article {
 
@@ -146,6 +157,20 @@ a {
       bottom: .5em;
     }
   }
+
+  @include mobile {
+    p {
+      padding: .2em 0;
+    }
+    pre {
+      padding: 0;
+      overflow: scroll;
+      code {
+        padding: 24px 16px;
+        width: 160%;
+      }
+    }
+  }
 }
 
 
@@ -180,5 +205,10 @@ code {
     &:hover:before {
       color: $black;
     }
+
+    @include mobile {
+      margin-left: 32px;
+    }
   }
+
 }

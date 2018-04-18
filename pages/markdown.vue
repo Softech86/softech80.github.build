@@ -193,4 +193,13 @@
     }
   }
 
+  @include mobile() {
+    #image-preview .img-box {
+      width: 100%;
+    }
+    .markdown {
+      padding-top: 30px;
+    }
+  }
+
 </style>
