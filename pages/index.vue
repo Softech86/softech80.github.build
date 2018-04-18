@@ -70,7 +70,7 @@
     </section>
 
 
-    <div class="mw1000 mv50 op5 f12">Copyright © Leo Bai. All Rights Reserved.</div>
+    <div class="copyright mw1000 mv50 op5 f12">Copyright © Leo Bai. All Rights Reserved.</div>
   </div>
 </template>
 
@@ -257,10 +257,7 @@
   }
 
 
-  .imgs {
-
-    $edge: 10px;
-    $blank: 50px;
+  @mixin imgs-style($edge, $blank) {
 
     .img {
       width: 100%;
@@ -287,9 +284,13 @@
       margin-bottom: $blank;
 
       .img {
-        background-position: calc(100% + 50px) calc(100% + 50px);
+        background-position: calc(100% + #{$blank}) calc(100% + #{$blank});
       }
     }
+  }
+
+  .imgs {
+    @include imgs-style(10px, 50px)
   }
 
   .blog {
@@ -347,6 +348,59 @@
     }
   }
 
+  @include mobile() {
+    .f32 {
+      font-size: 28px !important;
+    }
+    .sec {
+      height: 100vh;
+      .rect {
+        width: 100%;
+        height: 35%;
+      }
+      .desc {
+        padding-right: 60px;
+        margin-left: 10px;
+        margin-top: 33vh;
+        div:first-child {
+          margin: 50px 0 -3px;
+        }
+      }
+      .blogs {
+        margin-top: calc(12vh - 60px);
+      }
+    }
+
+    .imgs {
+      @include imgs-style(5px, 20px);
+
+      .img-left {
+        margin-top: 0;
+      }
+    }
+    .category {
+      margin: calc(16vh - 60px) 0;
+
+      &:nth-child(odd) {
+        .title {
+          margin-top: 100px;
+        }
+        .blogs {
+          margin-top: 150px;
+          transform: translateX(-100vw) translateX(100%) translateX(180px);
+        }
+      }
+      &:nth-child(even) {
+        margin-top: calc(16vh - 25px);
+        .blogs {
+          margin: 140px -50% 0 5%;
+        }
+      }
+    }
+    .copyright {
+      margin: 20px 0 !important;
+    }
+  }
 
 
 </style>

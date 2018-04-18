@@ -4,11 +4,12 @@
     class="f20 courier bold mw1000"
     :style="navStyle"
     :class="{ active }"
+    @click="active = !active"
   >
     <router-link to="/" class="logo-box">
       <fei-logo :width="size" :height="size"></fei-logo>
     </router-link>
-    <div class="btn-active" @click="active = !active">
+    <div class="btn-active">
       <i class="a"></i>
       <i class="b"></i>
       <i class="c"></i>
