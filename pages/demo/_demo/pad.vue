@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-pad flex flv">
+  <div class="demo-pad flex flv flxc flyc">
     <iframe :src="url" frameborder="0"></iframe>
   </div>
 </template>
@@ -15,17 +15,24 @@
         return this.$route.params.demo
       },
       url () {
-        return `/demo/static/${this.demo}/index.html`
+        return `/demo/${this.demo}/index.html`
       }
     }
   }
 
 </script>
 
-<style lang="scss" scoped>
-  iframe {
-    width: calc(100vw - 80px);
+<style lang="scss">
+  // body {
+  //   background: black
+  // }
+  .demo-pad {
     height: 100vh;
+  }
+  iframe {
+    width: 1024px;
+    height: 768px;
+    box-shadow: -2px 2px 21px -7px black;
   }
 
 </style>

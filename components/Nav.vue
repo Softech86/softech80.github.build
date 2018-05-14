@@ -1,7 +1,7 @@
 <template>
   <nav
     id="nav"
-    class="f20 courier bold mw1000"
+    class="f18 courier bold mw1000"
     :style="navStyle"
     :class="{ active }"
     @click="active = !active"
@@ -21,11 +21,10 @@
     <router-link to="/" class="home" hidden>Home</router-link>
     </transition>
 
-    <router-link to="/blog">Blog</router-link>
-
-    <!--<router-link to="/">Demo</router-link>-->
+    <router-link to="/">Home</router-link>
+    <router-link to="/demo">Demo</router-link>
     <a href="//github.com/Softech86" target="_blank">Git</a>
-    <a href="//www.zhihu.com/people/leo-bai-35" target="_blank">Zhihu</a>
+    <!-- <a href="//www.zhihu.com/people/leo-bai-35" target="_blank">Zhihu</a> -->
     <a id="girl" href="//www.jianshu.com/u/ea9ec8de23aa" target="_blank">GIRL</a>
 
   </nav>
@@ -37,7 +36,7 @@
     props: {
       size: {
         type: [ Number, String ],
-        default: 45
+        default: 40
       }
     },
     components: {
