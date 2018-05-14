@@ -13,6 +13,7 @@ const md5 = require('md5');
 const fontmin = require('gulp-fontmin');
 const jsonfile = require('jsonfile')
 const print = require('gulp-print').default
+const replace = require('gulp-replace');
 
 const util = require('./assets/script/util.js')
 
@@ -25,7 +26,7 @@ const PATH = {
   map: 'assets/script/md.json',
   static: 'static/markdown',
   demo: 'demo/**/*',
-  demoDist: 'static/demo/static'
+  demoDist: 'static/demo'
 }
 
 
@@ -37,7 +38,7 @@ marked.setOptions({
   }
 });
 
-const JSONToVue = function(template) {
+const JSONToVue = function (template) {
   return through.obj(function (file, enc, cb) {
     const data = Object.assign({
       title: '',
@@ -71,16 +72,16 @@ function minifyFont(text, cb) {
     .on('end', cb);
 }
 
-gulp.task('markdown::font', function(cb) {
+gulp.task('markdown::font', function (cb) {
   const titles = [];
 
   gulp.src(PATH.src)
     .pipe(markdownToJSON(marked))
-    .on('data', function(file) {
+    .on('data', function (file) {
       const data = JSON.parse('' + file.contents)
       titles.push(data.title)
     })
-    .on('end', function() {
+    .on('end', function () {
       const text = titles.join('').match(/\W/g).join('')
       console.log(text)
       minifyFont(text, cb);
@@ -97,6 +98,8 @@ gulp.task('markdown::resource', function () {
 })
 
 gulp.task('demo::resource', function () {
+  del.sync([PATH.demoDist])
+
   return gulp.src(PATH.demo)
     .pipe(print(function (filepath) {
       return `Moving resource: ${filepath}`
@@ -104,8 +107,26 @@ gulp.task('demo::resource', function () {
     .pipe(gulp.dest(PATH.demoDist))
 })
 
+gulp.task('demo::repath', ['demo::resource'], function () {
+  return gulp.src(PATH.demoDist + '/**/*.html')
+    .pipe(print(function (filepath) {
+      return `Reset path of file: ${filepath}`
+    }))
+    .pipe(replace(/(src|href)=".+?"/g, function (match, p1, offset, string) {
+      // console.log(match, p1, offset, this.file.dirname, this.file.relative, this.file.path)
+      if (match.search('//') >= 0) {
+        return match
+      } else {
+        const dir = this.file.relative.split('/')[0]
+        console.log(`Get path ${match} in folder ${dir}`)
+        return match.replace(/="/, `="/demo/${dir}/`).replace(/\/\//, '/')
+      }
+    }))
+    .pipe(gulp.dest(PATH.demoDist))
+})
+
 gulp.task('markdown::template', function () {
-  del.sync([PATH.markdownDist, PATH.demoDist, PATH.map, PATH.static])
+  del.sync([PATH.markdownDist, PATH.map, PATH.static])
   const file = fs.readFileSync(PATH.template);
   const template = file.toString()
 
@@ -124,7 +145,7 @@ gulp.task('markdown::template', function () {
         name: file.relative.slice(0, -4)
       }, file.data))
     })
-    .on('end', function() {
+    .on('end', function () {
       // const js = `
       //     const data = ${ JSON.stringify(paths, null, 4) };
       //     export { data }
@@ -135,7 +156,7 @@ gulp.task('markdown::template', function () {
 })
 
 
-gulp.task('default', ['markdown::template', 'markdown::resource', 'markdown::font', 'demo::resource']);
+gulp.task('default', ['markdown::template', 'markdown::resource', 'markdown::font', 'demo::resource', 'demo::repath']);
 
 gulp.task('watch', function () {
   // livereload.listen()

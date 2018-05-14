@@ -166,7 +166,7 @@ a {
       padding: 0;
       overflow: scroll;
       code {
-        padding: 24px 16px;
+        padding: 24px 12px;
         width: 160%;
       }
     }
@@ -207,7 +207,7 @@ code {
     }
 
     @include mobile {
-      margin-left: 32px;
+      margin-left: 36px;
     }
   }
 
